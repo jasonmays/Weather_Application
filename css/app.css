@@ -1,0 +1,24 @@
+/* hide the hamburger menu */
+a.sidebar-toggle{
+    display: none;
+}
+
+label {
+    width: 50%;
+    text-align: right;
+    padding-bottom: .5em;
+    padding-right: 1em;
+}
+
+.message {
+	display: block;
+	padding-left: 50%;
+	margin: 10px;
+}
+
+.message-full {
+	display: block;
+	margin: 10px;
+}
+
+

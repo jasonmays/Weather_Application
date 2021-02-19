@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+
+The weather_api is based on the
+AdminLTE template (version 2.4.5) found here: https://adminlte.io/
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Weather</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="icon" type="image/png" href="images/favicon.ico">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.0/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Shafer has chosen the skin-red for this starter
+        page. However, you can choose any other skin. Make sure you
+        apply the skin class to the body tag so the changes take effect. -->
+  <link rel="stylesheet" href="dist/css/skins/skin-cherry.css">
+
+  <!-- mis2402 stylesheet -->
+  <link rel="stylesheet" href="css/app.css">
+  
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Font -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <!-- REQUIRED JS SCRIPTS -->
+
+    <!-- jQuery 3 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.min.js"></script>
+    <!-- mis2402 code -->    
+    <script src="js/app.js"></script>
+</head>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+<body class="hold-transition skin-blue sidebar-collapse">
+<div class="wrapper">
+
+  <!-- Main Header -->
+  <header class="main-header">
+
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>W</b>eather</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><i class="fas fa-cloud-sun-rain"></i><b>Weather</b>Forcasting</span>
+    </a>
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+        <li><a href="#wrapperCurrent" class="WeatherNavlink"><i class="fas fa-sun">&nbsp;</i><span>Current Weather</span></a></li>
+        <li><a href="#wrapperForcast" class="WeatherNavlink"><i class="fas fa-temperature-high">&nbsp;</i><span>Forcasting Tool</span></a></li>
+
+              <!-- Menu Footer-->
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+          
+  <!-- Content Wrapper Login. Contains login page content -->
+  <div class="content-wrapper" id="wrapperCurrent" style="display:none;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Current Weather
+      </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content container-fluid">
+
+      <!--------------------------
+        | Current Weather Page Content Here |
+        -------------------------->
+        <!-- /.box-header -->
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title">Please provide the following information</h3>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <form role="form" id="frm_send_weather_info">
+              <!-- text input -->
+              <div class="form-group">
+                <input type="hidden" name="key" value="9d2e680ba9a04a87adf823d17fef95f2">
+                <label for="city">City:</label> 
+                <input type="text" id="city" name="city" placeholder= "Required"><br>
+                <label for="state">State:</label> 
+                <input type="text" id="state" name="state" placeholder="Optional"><br>
+                <label for="country">Country:</label> 
+                <input type="text" id="country" name="country" placeholder="Optional"><br>
+                <label for="units">Measurement Unit: </label> 
+                <input id="units" type="text" name="units" placeholder = "Default is M" >
+                <div style = "color: black; text-align: center;">(M = Celcius, S = Kelvin, I = Fahrenheit)</div>
+                <input id="days" type="hidden" name="days" value = "7"> <br>
+                <table id="CurrentWeatherTable" border="1px solid black" align="center"></table>
+              </div>
+            </form>
+          </div>
+          <div class="box-footer">
+            <input type="button" id="btnGetWeather" type="button" class="btn btn-primary" value="Enter">
+            <span class='message-full bg bg-danger' id = "danger"></span>
+        </div>  
+        </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper Login -->
+  
+  <!-- Content Wrapper Quote of the day. Contains quote of the day page content -->
+  <div class="content-wrapper" id="wrapperForcast" style="display:none;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Forcasting Tool
+      </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content container-fluid">
+
+      <!--------------------------
+        | Forcasting Page Content Here |
+        -------------------------->
+        <!-- /.box-header -->
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 id = "HeaderForcast" class="box-title">Forcasting</h3>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <form id="frm_forcasting">
+              <label for="units">Days: </label> 
+              <input type="text" id="days_forcasting"  name="days" placeholder= "Value Between 1-16"> 
+              <input type="hidden" name="key" value="9d2e680ba9a04a87adf823d17fef95f2">
+              <input type="hidden" id="city_forcasting" name="city">
+              <input type="hidden" id="state_forcasting" name="state">
+              <input type="hidden" id="country_forcasting" name="country">
+              <input type="hidden" id="units_forcasting"  name="units">
+              <table id="weather" border="1px solid black" align="center"></table>
+            </form>
+          </div>
+	    	<div class="box-footer">
+            <input id="btnGetForcasting" type="button" class="btn btn-primary" value="Enter">&nbsp;
+            <span id="share_danger"class='message-full bg bg-danger'></span>
+        </div> 
+        </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper Forcasting-->
+  
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+      By: Jason Mays
+    </div>
+    <!-- Default to the left -->
+    <strong>Weather API Powered By: <a href="https://www.weatherbit.io">Weatherbit.io</a></strong>
+  </footer>
+
+</div>
+<!-- ./wrapper -->
+
+</body>
+</html>
